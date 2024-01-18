@@ -1,0 +1,54 @@
+{
+    "helicopters":[
+    {
+      "id": 1,
+      "make": "AW 139",
+      "model": "H125",
+      "max-distance": 1500,
+      "year": 2020,
+      "passengers": 8,
+      "hourly_rate": 1400,
+      "image": "https://helicopters.leonardo.com/o/adaptive-media/image/26447073/h_695/AW139_catalogue.jpg"
+    },
+    {
+      "id": 2,
+      "make": "EC135 HELICOPTER",
+      "model": "429 GlobalRanger II",
+      "max-distance": 2000,
+      "year": 2019,
+      "passengers": 6,
+      "hourly_rate": 1300,
+      "image": "https://media.istockphoto.com/id/1431753001/photo/german-army-airbus-eurocopter-ec135-helicopter.jpg?s=1024x1024&w=is&k=20&c=oGo1m-T0CVjEIwaSr49SpJ2asWXZwgDRoDAem98Ct6M="
+    },
+    {
+      "id": 3,
+      "make": "AS355 HELICOPTER 1",
+      "model": "H125",
+      "max-distance": 4000,
+      "year": 2017,
+      "passengers": 5,
+      "hourly_rate": 1200,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Ecureuil_AS_355N_Slovakia_%282%29.JPG/800px-Ecureuil_AS_355N_Slovakia_%282%29.JPG"
+    },
+    {
+      "id": 4,
+      "make": "H120/EC120 HELICOPTER ",
+      "model": "H125",
+      "max-distance": 3000,
+      "year": 2015,
+      "passengers": 4,
+      "hourly_rate": 1100,
+      "image": "https://i.ebayimg.com/images/g/XQQAAOSwMNlhWw0e/s-l1600.jpg"
+    },
+    {
+      "id": 5,
+      "make": "ROBINSON R44",
+      "model": "H125",
+      "max-distance": 3500,
+      "year": 2011,
+      "passengers": 3,
+      "hourly_rate": 1000,
+      "image": "https://media.gettyimages.com/id/601040928/photo/robinson-r44-raven-ii-is-a-four-seat-light-single-engined-helicopter-with-semi-rigid-two.jpg?s=594x594&w=gi&k=20&c=JKBwgs-Y31ffBPARLoej1-ByeoweX3hAf4XvdhrFxKI="
+    }
+  ]
+}
