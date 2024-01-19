@@ -7,3 +7,6 @@ use. The company has been in operation since 2020 and currently operates 5 helic
 that are available for rent to individuals or groups of up to 8 people at any given time.
 ### PROJECT SETUP ###
 To set up the project, you need to have java installed on your computer. You can download it
+from https://www.java.com/en/download/. After installing Java, open a terminal
+or command prompt window and navigate to where you want to store the project files. Then, create a
+new folder named "MorganHelicopters" (you can use any name )
