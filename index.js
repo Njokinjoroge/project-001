@@ -1,10 +1,3 @@
-// // // function chooseHelicopter() {
-// // //     fetch('http://localhost:3000/helicopters')
-// // //     .then(response => response.json())
-// // //     .then(helicopters => helicopters.forEach(chooseHelicopter => choosenHelicopter(chooseHelicopter)))
-// // //     .catch(error => console.error('Error:', error));
-// // // }
-
 
 function choosenHelicopter(chooseHelicopter) {
     const card = document.createElement("div");
@@ -34,68 +27,107 @@ function choosenHelicopter(chooseHelicopter) {
 
 choosenHelicopter();
 
-function helicopterTypes(chooseHelicopter) {
-    // const innerhtml=chooseHelicopter();
-    document.querySelector('body').innerHTML = `
-    <div class="helicopters">
-    <h3> Choose Helicopter</h3>
-    </div>`
-    
-    fetch('http://localhost:3000/helicopters')
-    .then(response => response.json())
-    .then(data => {data.forEach((helicopters) => {
-        
-        const helicopterpage = document.createElement('form');
-        helicopterpage.id = "objectlist";
-        helicopterpage.innerHTML = `
-        <img src="${helicopters.image}" alt="${helicopters.make}" width=500 height= 500>
-        <p>Passengers: ${helicopters.passengers}</p>
-        <p>Range: ${helicopters.max_distance}</p>
-        <p>Rate: ${helicopters.hourly_rate}</p>
-        <input type="radio" name="helicopter" value=${helicopters.id}
-        onclick="selectHelicopter(this.value)" />Select this helicopter<br
-        >
-        <button id ='submit'>SUMBIT</button>
-        `;
-        const body = document.body;
-        body.appendChild(helicopterpage);
-    })})
-    const submitBtn = document.getElementById('submit');
-    submitBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const enterhours = prompt('Hiring hours: ')
-        if (!Number.isInteger(parseInt(enterhours))) {
-            alert('Please enter a number!')
-        }
-        else{
-            return `Your charge are ${helicopters.hourly_rate*enterhours}`
-        }
-    }
-    )
-};
-  
 
-
-//   function helicopterTypes(chooseHelicopter) {
-//     // const innerhtml=chooseHelicopter();
+// function helicopterTypes(chooseHelicopter) {
 //     document.querySelector('body').innerHTML = `
-//     <div class="helicopters">
-//     <h3> Choose Helicopter</h3>
-//     </div>`
+//       <div class="helicopters">
+//       <h3> Choose Helicopter</h3>
+//       </div>`
+//     document.body.style.backgroundImage = "none";
+//     const helipage = document.createElement('div');
+//     helipage.id = "object";
+//     const body = document.body;
+//     body.appendChild(helipage);
+  
 //     fetch('http://localhost:3000/helicopters')
-//     .then(response => response.json())
-//     .then(data => {data.forEach((helicopters) => {
-        
+//       .then(response => response.json())
+//       .then(data => {
+//         data.forEach((helicopter) => {
 //         const helicopterpage = document.createElement('div');
 //         helicopterpage.id = "objectlist";
-//         helicopterpage.innerHTML = `
-//         <img src="${helicopters.image}" alt="${helicopters.make}" width=500 height= 500>
-//         <p>Passengers: ${helicopters.passengers}</p>
-//         <p>Range: ${helicopters.max_distance}</p>
-//         <p>Rate: ${helicopters.hourly_rate}</p>
-//         `;
-//         const body = document.body;
+//           helicopterpage.className='helicopters'
+//           helicopterpage.innerHTML = `
+//           <img src="${helicopter.image}" alt="${helicopter.make}" width=500 height= 500>
+//           <p>Passengers: ${helicopter.passengers}</p>
+//           <p>Range: ${helicopter.max_distance}</p>
+//           <p>Rate: ${helicopter.hourly_rate}</p>
+//           <input type="radio" name="helicopter" value="${helicopter.id}"
+//           onclick="selectHelicopter(this.value)" />Select this helicopter<br>
+//           `;
+//           const body = document.body;
 //         body.appendChild(helicopterpage);
-//     })
-//     });
+//         })
+//         var myButton = document.createElement("BUTTON");
+//         myButton.id='submit'
+//         myButton.innerHTML = "Submit";
+//         const helipage = document.querySelector('#object')
+//         helipage.appendChild(myButton);
+//         const submitBtn = document.getElementById("submit");
+//         submitBtn.style = `align-self: flex-end;
+//                             margin-left: auto;
+                            
+//                             `;
+//         submitBtn.onclick = function() {
+//           const selectedHelicopterId = document.querySelector('input[name="helicopter"]:checked').value;
+//           const enterhours = Number(prompt('Hiring hours: '));
+//           if (!Number.isNaN(enterhours) && Number.isInteger(enterhours)) {
+//             const selectedHelicopter = data.find(helicopter => helicopter.id == selectedHelicopterId);
+//             alert(`You have hired a ${selectedHelicopter.make} for ${selectedHelicopter.hourly_rate * enterhours}$
+//             Please pay the rental fee.`);
+//           } else {
+//             alert('Please enter a valid integer!');
+//           }
+//         }
+    
+//       })
 //   }
+
+
+
+function helicopterTypes(chooseHelicopter) {
+    document.querySelector('body').innerHTML = `
+      <div class="helicopters">
+      <h3> Choose Helicopter</h3>
+      </div>`
+    document.body.style.backgroundImage = "none";
+    const helipage = document.createElement('div');
+    helipage.id = "object";
+    const body = document.body;
+    body.appendChild(helipage);
+  
+    fetch('http://localhost:3000/helicopters')
+      .then(response => response.json())
+      .then(data => {
+        data.forEach((helicopter) => {
+        const helicopterpage = document.createElement('div');
+        helicopterpage.id = "objectlist";
+          helicopterpage.className='helicopters'
+          helicopterpage.innerHTML = `
+          <img src="${helicopter.image}" alt="${helicopter.make}" width=500 height= 500>
+          <p>Passengers: ${helicopter.passengers}</p>
+          <p>Range (kms): ${helicopter.max_distance}</p>
+          <p>Hourly rate ($): ${helicopter.hourly_rate}</p>
+          <input type="radio" name="helicopter" value="${helicopter.id}"
+          onclick="selectHelicopter(this.value)" />Select this helicopter<br>
+          <button id= 'btn-${helicopter.id}'>BOOK A FLIGHT</button>
+          `;
+          const body = document.body;
+        body.appendChild(helicopterpage);
+      
+        const submitBtn = document.getElementById(`btn-${helicopter.id}`);
+      
+        submitBtn.onclick = function() {
+          const selectedHelicopterId = document.querySelector('input[name="helicopter"]:checked').value;
+          const enterhours = Number(prompt('Hiring hours: '));
+          if (!Number.isNaN(enterhours) && Number.isInteger(enterhours)) {
+            const selectedHelicopter = data.find(helicopter => helicopter.id == selectedHelicopterId);
+            alert(`You have hired a ${selectedHelicopter.make} for ${selectedHelicopter.hourly_rate * enterhours}$
+            Please pay the rental fee.`);
+          } else {
+            alert('Please enter a valid integer!');
+          }
+        }
+    
+        })
+      })
+ }
