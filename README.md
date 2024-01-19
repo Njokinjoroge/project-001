@@ -10,3 +10,5 @@ To set up the project, you need to have java installed on your computer. You can
 from https://www.java.com/en/download/. After installing Java, open a terminal
 or command prompt window and navigate to where you want to store the project files. Then, create a
 new folder named "MorganHelicopters" (you can use any name )
+Inside this new folder, right click and select 'Open Command Window Here' from the context menu
+(this will open a command prompt window with the path as the location of your new folder).
