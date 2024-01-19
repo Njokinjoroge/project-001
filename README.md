@@ -14,3 +14,15 @@ Inside this new folder, right click and select 'Open Command Window Here' from t
 (this will open a command prompt window with the path as the location of your new folder).
 Now clone the repository by running the following command:'git clone 'path to the created repository'
 Make sure to replace `'path to the created repository'` with the actual URL of the git repository.
+Once cloned successfully, you should see a new folder called "MorgamHelicopters"
+in your current directory. Open this folder and proceed to the next steps.
+### BUILDING AND RUNNING THE APPLICATION ###
+To build and run the application, follow these instructions:
+1. Open visual studio codeor any other preferred Java Integrated Development Environment (IDE)
+from the installation link provided below:`https://code.visualstudio.com/download`
+2. Once VS Code is opened, go to `File > Open Folder`, then locate the
+"MorganHelicopters" folder you just created and clicked on it.
+3. Now you should be able to see the source codes for the project in the editor. If
+not, please check if JDK is correctly installed in your system and the PATH variable is set.
+
+
