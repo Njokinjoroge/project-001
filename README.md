@@ -12,3 +12,5 @@ or command prompt window and navigate to where you want to store the project fil
 new folder named "MorganHelicopters" (you can use any name )
 Inside this new folder, right click and select 'Open Command Window Here' from the context menu
 (this will open a command prompt window with the path as the location of your new folder).
+Now clone the repository by running the following command:'git clone 'path to the created repository'
+Make sure to replace `'path to the created repository'` with the actual URL of the git repository.
