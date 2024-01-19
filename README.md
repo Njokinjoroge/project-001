@@ -33,5 +33,6 @@ You should now be able to interact with the application through the debug consol
 ### LIVE SITE GITHUB PAGES LINK ###
 `https://github.com/Njokinjoroge/project-001`
 
+### copyright and license ###
 
 
