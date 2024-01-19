@@ -24,5 +24,11 @@ from the installation link provided below:`https://code.visualstudio.com/downloa
 "MorganHelicopters" folder you just created and clicked on it.
 3. Now you should be able to see the source codes for the project in the editor. If
 not, please check if JDK is correctly installed in your system and the PATH variable is set.
-
+4. To build the entire project, simply press `F6` or go to `Terminal
+> Run Build Task`. This will compile all the classes in the project.
+5. To run the application, go to `Run > Start Debugging` or press `F
+5`. This will start the application and display its output in the debug console.
+You should now be able to interact with the application through the debug console.</s>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.
+### LIVE SITE GITHUB PAGES LINK ###
 
