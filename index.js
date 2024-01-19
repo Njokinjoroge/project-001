@@ -1,9 +1,10 @@
-function chooseHelicopter() {
-    fetch('http://localhost:3000/helicopters')
-    .then(response => response.json())
-    .then(helicopters => helicopters.forEach(chooseHelicopter => choosenHelicopter(chooseHelicopter)))
-    .catch(error => console.error('Error:', error));
-}
+// // // function chooseHelicopter() {
+// // //     fetch('http://localhost:3000/helicopters')
+// // //     .then(response => response.json())
+// // //     .then(helicopters => helicopters.forEach(chooseHelicopter => choosenHelicopter(chooseHelicopter)))
+// // //     .catch(error => console.error('Error:', error));
+// // // }
+
 
 function choosenHelicopter(chooseHelicopter) {
     const card = document.createElement("div");
@@ -33,57 +34,68 @@ function choosenHelicopter(chooseHelicopter) {
 
 choosenHelicopter();
 
-
-
-
-function helicopterTypes(chooseHelicopter){
-    const helicopterPage= document.createElement('div');
-    helicopterPage.className='container'
-    helicopterPage.innerHTML=`
-    <h3>Choose a type of Helicopter: </h3>`
-    document.body.appendChild(helicopterPage)
-    const list = document.createElement('li')
-    list.textContent= `${chooseHelicopter.type}`
-    list.dataset.thisType=JSON.stringify(chooseHelicopter)
-    list.addEventListener('click', (e)=>{showDetails(e)})
-    helicopterPage.appendChild(list)
-
-}
-
-
-// function helicopterTypes(){
-//     const helicopterPage= document.createElement('div')
-//     helicopterPage.id='helicopter-page'
-//     document.body.appendChild(helicopterPage);
-//     const backBtn=document.createElement('button')
-//     backBtn.innerText='Back'
-//     backBtn.onclick=()=>{document.querySelector('#details').remove();document.
-//     querySelector('.container').style.display='block';backBtn.remove()}
-//     helicopterPage.append(backBtn)
-//     const type=event.target.value
-//     const request= new Request(`http://localhost:3000/helicopters`)
-//     fetch(request).then(respone=> respone.json()).then(data=>show)
-
-//     function helicopterOptons(){
-//         const selectHelicopter=document.createElement('select')
-//         selectHelicopter.id='typeOfHelicopter'
-//         fetch(' http://localhost:3000/helicopters')
-//     .then(res=> res.text())
-//     .then(data=>{
-//         const selectElement = document.getElementById('myselect')
-//         data.forEach(optionData => 
-//             {const optionElement = document.createElement('option');
-//             optionElement.text = optionData.text;
-//             optionElement.value = optionData.value;
-//             selectElement.add(optionElement);
-//         })
-//         return selectHelicopter
-//     })
-//     .then(selectElement => {
-//         helicopterPage.appendChild(selectElement);
-//     })
+function helicopterTypes(chooseHelicopter) {
+    // const innerhtml=chooseHelicopter();
+    document.querySelector('body').innerHTML = `
+    <div class="helicopters">
+    <h3> Choose Helicopter</h3>
+    </div>`
+    
+    fetch('http://localhost:3000/helicopters')
+    .then(response => response.json())
+    .then(data => {data.forEach((helicopters) => {
         
-//     }
+        const helicopterpage = document.createElement('form');
+        helicopterpage.id = "objectlist";
+        helicopterpage.innerHTML = `
+        <img src="${helicopters.image}" alt="${helicopters.make}" width=500 height= 500>
+        <p>Passengers: ${helicopters.passengers}</p>
+        <p>Range: ${helicopters.max_distance}</p>
+        <p>Rate: ${helicopters.hourly_rate}</p>
+        <input type="radio" name="helicopter" value=${helicopters.id}
+        onclick="selectHelicopter(this.value)" />Select this helicopter<br
+        >
+        <button id ='submit'>SUMBIT</button>
+        `;
+        const body = document.body;
+        body.appendChild(helicopterpage);
+    })})
+    const submitBtn = document.getElementById('submit');
+    submitBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const enterhours = prompt('Hiring hours: ')
+        if (!Number.isInteger(parseInt(enterhours))) {
+            alert('Please enter a number!')
+        }
+        else{
+            return `Your charge are ${helicopters.hourly_rate*enterhours}`
+        }
+    }
+    )
+};
+  
 
-//     helicopterOptons();
-// }
+
+//   function helicopterTypes(chooseHelicopter) {
+//     // const innerhtml=chooseHelicopter();
+//     document.querySelector('body').innerHTML = `
+//     <div class="helicopters">
+//     <h3> Choose Helicopter</h3>
+//     </div>`
+//     fetch('http://localhost:3000/helicopters')
+//     .then(response => response.json())
+//     .then(data => {data.forEach((helicopters) => {
+        
+//         const helicopterpage = document.createElement('div');
+//         helicopterpage.id = "objectlist";
+//         helicopterpage.innerHTML = `
+//         <img src="${helicopters.image}" alt="${helicopters.make}" width=500 height= 500>
+//         <p>Passengers: ${helicopters.passengers}</p>
+//         <p>Range: ${helicopters.max_distance}</p>
+//         <p>Rate: ${helicopters.hourly_rate}</p>
+//         `;
+//         const body = document.body;
+//         body.appendChild(helicopterpage);
+//     })
+//     });
+//   }
