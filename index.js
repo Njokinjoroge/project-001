@@ -27,63 +27,6 @@ function choosenHelicopter(chooseHelicopter) {
 
 choosenHelicopter();
 
-
-// function helicopterTypes(chooseHelicopter) {
-//     document.querySelector('body').innerHTML = `
-//       <div class="helicopters">
-//       <h3> Choose Helicopter</h3>
-//       </div>`
-//     document.body.style.backgroundImage = "none";
-//     const helipage = document.createElement('div');
-//     helipage.id = "object";
-//     const body = document.body;
-//     body.appendChild(helipage);
-  
-//     fetch('http://localhost:3000/helicopters')
-//       .then(response => response.json())
-//       .then(data => {
-//         data.forEach((helicopter) => {
-//         const helicopterpage = document.createElement('div');
-//         helicopterpage.id = "objectlist";
-//           helicopterpage.className='helicopters'
-//           helicopterpage.innerHTML = `
-//           <img src="${helicopter.image}" alt="${helicopter.make}" width=500 height= 500>
-//           <p>Passengers: ${helicopter.passengers}</p>
-//           <p>Range: ${helicopter.max_distance}</p>
-//           <p>Rate: ${helicopter.hourly_rate}</p>
-//           <input type="radio" name="helicopter" value="${helicopter.id}"
-//           onclick="selectHelicopter(this.value)" />Select this helicopter<br>
-//           `;
-//           const body = document.body;
-//         body.appendChild(helicopterpage);
-//         })
-//         var myButton = document.createElement("BUTTON");
-//         myButton.id='submit'
-//         myButton.innerHTML = "Submit";
-//         const helipage = document.querySelector('#object')
-//         helipage.appendChild(myButton);
-//         const submitBtn = document.getElementById("submit");
-//         submitBtn.style = `align-self: flex-end;
-//                             margin-left: auto;
-                            
-//                             `;
-//         submitBtn.onclick = function() {
-//           const selectedHelicopterId = document.querySelector('input[name="helicopter"]:checked').value;
-//           const enterhours = Number(prompt('Hiring hours: '));
-//           if (!Number.isNaN(enterhours) && Number.isInteger(enterhours)) {
-//             const selectedHelicopter = data.find(helicopter => helicopter.id == selectedHelicopterId);
-//             alert(`You have hired a ${selectedHelicopter.make} for ${selectedHelicopter.hourly_rate * enterhours}$
-//             Please pay the rental fee.`);
-//           } else {
-//             alert('Please enter a valid integer!');
-//           }
-//         }
-    
-//       })
-//   }
-
-
-
 function helicopterTypes(chooseHelicopter) {
     document.querySelector('body').innerHTML = `
       <div class="helicopters">
@@ -109,12 +52,12 @@ function helicopterTypes(chooseHelicopter) {
           <p>Hourly rate ($): ${helicopter.hourly_rate}</p>
           <input type="radio" name="helicopter" value="${helicopter.id}"
           onclick="selectHelicopter(this.value)" />Select this helicopter<br>
-          <button id= 'btn-${helicopter.id}'>BOOK A FLIGHT</button>
+          <button id= 'mybtn-${helicopter.id}'>BOOK A FLIGHT</button>
           `;
           const body = document.body;
         body.appendChild(helicopterpage);
       
-        const submitBtn = document.getElementById(`btn-${helicopter.id}`);
+        const submitBtn = document.getElementById(`mybtn-${helicopter.id}`);
       
         submitBtn.onclick = function() {
           const selectedHelicopterId = document.querySelector('input[name="helicopter"]:checked').value;
@@ -130,4 +73,35 @@ function helicopterTypes(chooseHelicopter) {
     
         })
       })
+ }
+
+
+ function contacts(){
+    const newElement = document.createElement('span');
+    newElement.textContent ="Contact us at info@rentalservice.com or call +254 705752309"
+    const linkElement = document.getElementById('myLink');
+    linkElement.appendChild(newElement);
+
+
+
+
+
+
+
+
+
+
+    //create contact page and add to DOM
+    // const contactPage = document.createElement("div");
+    // contactPage.setAttribute("class", "contacts")
+    // contactPage.innerHTML = `
+    // <h3>Contacts</h3>
+    // <ul>
+    // <p>Office Location: KRA Hangar, Wilson Airport, Nairobi, Kenya</p>
+    // <p>P.O Box: 7468 - 00300</p>
+    // <p>Tel: +254 707 777 100 | +254 735 777 100</p>
+    // <p>Email: heliops@corporatehelicopters.co.ke</p>
+    // `
+    // document.body.appendChild(contactPage);
+    
  }
